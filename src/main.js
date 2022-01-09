@@ -21,7 +21,9 @@ const render = () => {
     hashMap.forEach((node, index) => {
         const $li = $(`<li>
             <a href="${node.url}">
+            <div class="sitebox">
             <div class="site">
+           
                 <div class="logo">
                 ${node.logo[0]}
                 </div>
@@ -30,7 +32,8 @@ const render = () => {
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-close-circle"></use>
                     </svg>
-                </div>   
+                </div>  
+            </div >     
             </div >
             </a >
         </li > `).insertBefore($lastLi)
