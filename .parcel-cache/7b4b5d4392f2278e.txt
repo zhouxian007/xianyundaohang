@@ -1,0 +1,18 @@
+17
+34E:\demo\demo2\dist\bg.5864a668.jpg132861902479711036 0
+24E:\demo\demo2\src\images132861709961757499 1
+18E:\demo\demo2\dist132861902484109282 1
+38E:\demo\demo2\package-lock - 副本.json132861733810749390 0
+33E:\demo\demo2\package - 副本.json132861737411332883 0
+23E:\demo\demo2\README.md132861650054235596 0
+31E:\demo\demo2\src\images\bg.jpg132861718118660039 0
+34E:\demo\demo2\src\images\baidu.png132861658177158847 0
+27E:\demo\demo2\src\style.css132861718993711878 0
+17E:\demo\demo2\src132861650060907752 1
+28E:\demo\demo2\src\index.html132861769189816356 0
+25E:\demo\demo2\src\main.js132861650060907752 0
+37E:\demo\demo2\dist\index.04da5a05.css132861902484029497 0
+41E:\demo\demo2\dist\index.04da5a05.css.map132861902484089331 0
+36E:\demo\demo2\dist\index.51ac49f6.js132861902484039469 0
+40E:\demo\demo2\dist\index.51ac49f6.js.map132861902484089331 0
+29E:\demo\demo2\dist\index.html132861902484069382 0
