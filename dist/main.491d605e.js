@@ -122,22 +122,35 @@ var $siteList = $('.siteList');
 var $lastLi = $siteList.find('li.last');
 var x = localStorage.getItem('x');
 var xObject = JSON.parse(x);
+var titleText = document.title;
 var hashMap = xObject || [{
-  logo: "A",
+  logo: 'https://www.acfun.cn/favicon.ico',
   url: 'https://www.acfun.cn'
 }, {
-  logo: "B",
+  logo: "https://www.bilibili.com/favicon.ico",
   url: 'https://www.bilibili.com'
-}];
+}]; //简化展示的url链接
 
 var removeUrl = function removeUrl(url) {
   return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, '');
+}; //获取正确的favicon图标的地址
+
+
+var faviconUrl = function faviconUrl(url) {
+  return url.replace(/com\/.*/g, 'com');
+}; //如果图片不能正常显示则替换掉
+
+
+$noshowimg = function $noshowimg(showimg) {
+  var errorimg = "./images/error.png"; //替换图片地址
+
+  showimg.src = errorimg;
 };
 
 var render = function render() {
   $siteList.find('li:not(.last)').remove();
   hashMap.forEach(function (node, index) {
-    var $li = $("<li>\n            <a href=\"".concat(node.url, "\">\n            <div class=\"sitebox\">\n            <div class=\"site\">\n           \n                <div class=\"logo\">\n                ").concat(node.logo[0], "\n                </div>\n                <div class=\"link\">").concat(removeUrl(node.url), "</div >\n                <div class=\"close\">\n                    <svg class=\"icon\" aria-hidden=\"true\">\n                        <use xlink:href=\"#icon-close-circle\"></use>\n                    </svg>\n                </div>  \n            </div >     \n            </div >\n            </a >\n        </li > ")).insertBefore($lastLi);
+    var $li = $("<li>\n            <a href=\"".concat(node.url, "\">\n            <div class=\"sitebox\">\n            <div class=\"site\">\n           \n                <div class=\"logo\">\n                <img id=\"img\" src=\"").concat(faviconUrl(node.url), "/favicon.ico\" width=\"24\" height=\"24\" \u03BFnerr\u03BFr=\"noshowimg(this);\">\n                </div>\n                <div class=\"link\">").concat(removeUrl(node.url), "</div >\n                <div class=\"close\">\n                    <svg class=\"icon\" aria-hidden=\"true\">\n                        <use xlink:href=\"#icon-close-circle\"></use>\n                    </svg>\n                </div>  \n            </div >     \n            </div >\n            </a >\n        </li > ")).insertBefore($lastLi);
     $li.on('click', '.close', function (e) {
       e.preventDefault();
       hashMap.splice(index, 1);
@@ -177,4 +190,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.b1672cc3.js.map
+//# sourceMappingURL=main.491d605e.js.map

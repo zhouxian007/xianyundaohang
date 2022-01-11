@@ -2,20 +2,34 @@ const $siteList = $('.siteList')
 const $lastLi = $siteList.find('li.last')
 const x = localStorage.getItem('x')
 const xObject = JSON.parse(x)
+let titleText = document.title
 const hashMap = xObject || [
     {
-        logo: "A", url: 'https://www.acfun.cn'
+        logo: 'https://www.acfun.cn/favicon.ico', url: 'https://www.acfun.cn'
     },
     {
-        logo: "B", url: 'https://www.bilibili.com'
+        logo: "https://www.bilibili.com/favicon.ico", url: 'https://www.bilibili.com'
     }
 ];
+
+//简化展示的url链接
 const removeUrl = (url) => {
     return url.replace('https://', '')
         .replace('http://', '')
         .replace('www.', '')
         .replace(/\/.*/, '')
 }
+//获取正确的favicon图标的地址
+const faviconUrl = (url) => {
+    return url.replace(/com\/.*/g, 'com')
+}
+//如果图片不能正常显示则替换掉
+$noshowimg = (showimg) => {
+    let errorimg = "./images/error.png";//替换图片地址
+
+    showimg.src = errorimg;
+}
+
 const render = () => {
     $siteList.find('li:not(.last)').remove()
     hashMap.forEach((node, index) => {
@@ -25,7 +39,7 @@ const render = () => {
             <div class="site">
            
                 <div class="logo">
-                ${node.logo[0]}
+                <img id="img" src="${faviconUrl(node.url)}/favicon.ico" width="24" height="24" οnerrοr="noshowimg(this);">
                 </div>
                 <div class="link">${removeUrl(node.url)}</div >
                 <div class="close">
@@ -50,7 +64,6 @@ const render = () => {
 }
 
 render();
-
 
 
 $('.addButton')
