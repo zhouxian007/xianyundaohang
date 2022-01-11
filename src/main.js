@@ -21,13 +21,13 @@ const removeUrl = (url) => {
 }
 //获取正确的favicon图标的地址
 const faviconUrl = (url) => {
-    return url.replace(/com\/.*/g, 'com')
+    return url.replace(/com\/.*/g, 'com').replace(/cn\/.*/g, 'cn').replace(/net\/.*/g, 'net').replace(/top\/.*/g, 'top').replace(/gov\/.*/g, 'gov')
 }
 //如果图片不能正常显示则替换掉
-$noshowimg = (showimg) => {
-    let errorimg = "./images/error.png";//替换图片地址
+$noShowImg = (showImg) => {
+    let errorImg = "./images/error.png";
 
-    showimg.src = errorimg;
+    showImg.src = errorImg;
 }
 
 const render = () => {
@@ -39,7 +39,7 @@ const render = () => {
             <div class="site">
            
                 <div class="logo">
-                <img id="img" src="${faviconUrl(node.url)}/favicon.ico" width="24" height="24" οnerrοr="noshowimg(this);">
+                <img id="img" src="${faviconUrl(node.url)}/favicon.ico" width="24" height="24" >
                 </div>
                 <div class="link">${removeUrl(node.url)}</div >
                 <div class="close">
@@ -94,14 +94,14 @@ window.onbeforeunload = () => {
 }
 
 
-
-$(document).on('keypress', (e) => {
-    const key = e.key
-    for (let i = 0; i < hashMap.length; i++) {
-        if (hashMap[i].logo.toLowerCase() === key) {
-            window.open(hashMap[i].url)
-        }
-    }
-})
+//通过首字母获取键盘KEY触发URL
+// $(document).on('keypress', (e) => {
+//     const key = e.key
+//     for (let i = 0; i < hashMap.length; i++) {
+//         if (hashMap[i].logo.toLowerCase() === key) {
+//             window.open(hashMap[i].url)
+//         }
+//     }
+// })
 
 
